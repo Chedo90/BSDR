@@ -21,3 +21,11 @@ ON co.country_id = ci.country_id -- aqui  viene la magia aqui unes las tablas un
 JOIN address as ad -- puedes hacer todos los join que tu quieras lo imporante es a la hora de unir las tablas entre sí
 LEFT ci.city_id = ad.city_id -- tienes que unir CITY que es el ultimo join con el siguiente que es adress (city.city_id = address.city_id) buscas la tabla city y la columna city y ahora buscas la tabla
 --adress con la abla city
+
+USE sakila;
+SELECT co.country, ci.city, ci.country_id, co.country_id
+FROM country as co
+left join city as ci
+on co.country_id = ci.country_id
+where co.country like 'A%' -- Aqui haces un where utilizando la columna country  y buscando el %a%
+ORDER BY co.country_id;
